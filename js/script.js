@@ -1,3 +1,4 @@
+// Update Extra Memory Costs 
 function updateMemoryCost(memorySize) {
     const memoryCostField = document.getElementById('memory-cost');
     if (memorySize == '8') {
@@ -6,7 +7,9 @@ function updateMemoryCost(memorySize) {
     else if (memorySize == '16') {
         memoryCostField.innerText = '180';
     }
-}
+};
+
+// Update Storage Costs 
 function updateStorageCost(storageSizeDetails) {
     const storageCostField = document.getElementById('storage-cost');
     if (storageSizeDetails.includes('256')) {
@@ -20,6 +23,7 @@ function updateStorageCost(storageSizeDetails) {
     }
 };
 
+// Update Delivery Costs  
 function updateDeliveryCost(deliveryChoice) {
     const deliveryCostField = document.getElementById('delivery-cost');
     if (deliveryChoice.includes('Free')) {
@@ -30,6 +34,7 @@ function updateDeliveryCost(deliveryChoice) {
     }
 };
 
+// Update total prices on all occasions 
 function updateTotalPrice(isButtonClicked) {
     const totalPriceFields = document.getElementsByClassName('total-price');
     const bestPrice = parseFloat(document.getElementById('best-price').innerText);
@@ -42,7 +47,7 @@ function updateTotalPrice(isButtonClicked) {
             totalPrice.innerText = bestPrice + memoryCost + storageCost + deliveryCost;
         }
     }
-}
+};
 // Memory 8gb button handler 
 document.getElementById('memory-8').addEventListener('click', function () {
     updateMemoryCost('8');
@@ -52,7 +57,7 @@ document.getElementById('memory-16').addEventListener('click', function () {
     updateMemoryCost('16');
 });
 
-// all storage buttons handler 
+// Storage buttons handler 
 const allStorageBtns = document.querySelectorAll('.storages');
 for (let differentStorage of allStorageBtns) {
     differentStorage.addEventListener('click', function (event) {
@@ -60,7 +65,7 @@ for (let differentStorage of allStorageBtns) {
     });
 };
 
-// all delivery btn handler 
+// Delivery buttons handler 
 const allDeliveryBtns = document.querySelectorAll('.delivery-btn');
 for (let differentDeliveryBtn of allDeliveryBtns) {
     differentDeliveryBtn.addEventListener('click', function (event) {
@@ -68,12 +73,12 @@ for (let differentDeliveryBtn of allDeliveryBtns) {
     })
 };
 
-// using event delegate to give event-listener to all the buttons 
+// Using event delegate to give event-listener to all the buttons 
 document.getElementById('product-details').addEventListener('click', function (event) {
     updateTotalPrice(event.target.classList.contains('btn-outline-secondary'));
-})
+});
 
-// promo apply button handler 
+// Promo-Code Apply button handler 
 document.getElementById('promo-apply').addEventListener('click', function () {
     const promoCodeField = document.getElementById('promo-field')
     const promoCode = promoCodeField.value;
@@ -86,4 +91,4 @@ document.getElementById('promo-apply').addEventListener('click', function () {
     }
     promoCodeField.value = '';
 
-})
+});
