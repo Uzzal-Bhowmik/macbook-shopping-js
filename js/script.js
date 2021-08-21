@@ -77,9 +77,12 @@ document.getElementById('product-details').addEventListener('click', function (e
 document.getElementById('promo-apply').addEventListener('click', function () {
     const promoCodeField = document.getElementById('promo-field')
     const promoCode = promoCodeField.value;
-    const totalPrice = document.getElementById('ultimate-price');
+
+    const totalPrice = document.getElementById('initial-total-price');
+
+    const ultimateTotalPrice = document.getElementById('ultimate-price');
     if (promoCode == 'stevekaku') {
-        totalPrice.innerText = parseFloat(totalPrice.innerText) - (parseFloat(totalPrice.innerText) * .2);
+        ultimateTotalPrice.innerText = parseFloat(totalPrice.innerText) - (parseFloat(totalPrice.innerText) * .2);
     }
     promoCodeField.value = '';
 
